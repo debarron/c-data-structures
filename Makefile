@@ -3,6 +3,7 @@ dependencies = modules/c-str-functions
 dependencies_src = -I./modules/c-str-functions/src/
 dependencies_lib = -I./modules/c-str-functions/lib/
 
+all: tree.o tree_test
 .PHONY: $(dependencies) all
 
 $(dependencies): 
@@ -14,6 +15,5 @@ tree.o: $(dependencies)
 tree_test: tree.o
 	gcc -o ./bin/tree_test ./lib/tree.o $(dependencies_src) $(dependencies_lib) ./src/tree_test.c
 
-all: tree.o tree_test
 
 
