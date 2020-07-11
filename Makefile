@@ -13,7 +13,8 @@ tree.o: $(dependencies)
 	gcc -o ./lib/tree.o -c ./src/tree.c $(dependencies_src) $(dependencies_lib)
 
 tree_test: tree.o
-	gcc -o ./bin/tree_test ./lib/tree.o $(dependencies_src) $(dependencies_lib) ./src/tree_test.c
+	gcc -o ./bin/tree_test ./lib/tree.o $(dependencies_src) $(dependencies_lib) \
+		./src/tree_test.c 
 
 
 
