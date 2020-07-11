@@ -8,10 +8,6 @@ dependencies_lib = -I./modules/c-str-functions/lib/
 $(dependencies): 
 	$(MAKE) -C $@	
 
-
-#str_functions.o:
-#	cd ./modules/c-str-functions && $(MAKE)
-
 tree.o: $(dependencies)
 	gcc -o ./lib/tree.o -c ./src/tree.c $(dependencies_src) $(dependencies_lib)
 
