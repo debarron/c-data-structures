@@ -3,7 +3,7 @@ dependencies = modules/c-str-functions
 dependencies_src = -I./modules/c-str-functions/src/
 dependencies_lib = -I./modules/c-str-functions/lib/
 
-.PHONY: $(dependencies)
+.PHONY: $(dependencies) all
 
 $(dependencies): 
 	$(MAKE) -C $@	
