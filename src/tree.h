@@ -32,6 +32,7 @@ void tree_print_struct(tree_t *root, char *suffix);
 
 tree_t *tree_find_next(tree_t *root, char *element);
 tree_t *tree_find_children(tree_t *root, char *element);
+tree_t *tree_find_parent(tree_t *root, char *path);
 tree_t *tree_find(tree_t *root, char *path);
 
 

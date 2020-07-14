@@ -146,16 +146,31 @@ tree_t *tree_find_children(tree_t *root, char *element){
   else return tree_find_next(root->children, element);
 }
 
+tree_t *tree_find_parent(tree_t *root, char *path){
+  char **arr_path, *prev_path
+  int arr_path_lenght;
+  tree_t *parent;
+
+  arr_path = str_path_to_arr(path, &arr_path_lenght);
+  prev_path = str_array_to_str(arr_path, arr_path_lenght-1);  
+  parent = tree_find(root, prev_path);
+
+  free(prev_path);
+  for(int i = 0; i < arr_path_lenght; i++) free(arr_path[i]);
+  free(arr_path)
+
+  return parent;
+}
+
 char tree_add(tree_t *root, char *path, void *data){
-  char **arr_path, *prev_path, *new_element;
+  char **arr_path, *new_element;
   int arr_path_lenght;
   tree_t *parent;
 
   arr_path = str_path_to_arr(path, &arr_path_lenght);
   new_element = arr_path[arr_path_lenght-1];
-  prev_path = str_array_to_str(arr_path, arr_path_lenght-1);
   
-  parent = tree_find(root, prev_path);
+  parent = tree_find_parent(root, path);
   if(parent == NULL) return 0;
 
   tree_add_children(parent, new_element, data);
