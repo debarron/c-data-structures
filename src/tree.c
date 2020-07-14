@@ -147,7 +147,7 @@ tree_t *tree_find_children(tree_t *root, char *element){
 }
 
 tree_t *tree_find_parent(tree_t *root, char *path){
-  char **arr_path, *prev_path
+  char **arr_path, *prev_path;
   int arr_path_lenght;
   tree_t *parent;
 
