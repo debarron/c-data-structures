@@ -3,8 +3,8 @@ dependencies = modules/c-str-functions
 dependencies_src = -I./modules/c-str-functions/src/
 dependencies_lib = -I./modules/c-str-functions/lib/
 
-all: create_dirs $(dependencies) tree.o tree_test
-.PHONY: all
+all: $(dependencies) create_dirs tree.o tree_test
+.PHONY: $(dependencies) all
 
 $(dependencies): 
 	$(MAKE) -C $@	
