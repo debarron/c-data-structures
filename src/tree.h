@@ -11,6 +11,7 @@ typedef struct node_t {
   void* data;
   struct node_t* children;
   struct node_t* next;
+  struct node_t* parent;
   int children_n;
 } tree_t;
 

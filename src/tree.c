@@ -15,6 +15,7 @@ tree_t* tree_new_node(char* path, void* data){
   new_node->data = data;
   new_node->children = NULL;
   new_node->next = NULL;
+  new_node->parent = NULL;
   new_node->children_n = 0;
 
   return new_node;
@@ -29,6 +30,7 @@ void tree_add_children(tree_t* root, char* element, void* data){
   tree_t* children = root->children;
 
   root->children_n++;
+  new_node->parent = root;
   if(root->children == NULL)
     root->children = new_node;
   else{
@@ -89,7 +91,6 @@ tree_t* tree_find_parent(tree_t* root, char* path){
   free(prev_path);
   for(int i = 0; i < arr_path_lenght; i++) free(arr_path[i]);
   free(arr_path);
-
   return parent;
 }
 
